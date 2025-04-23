@@ -1,7 +1,7 @@
 /*! NoeudTheme v1.0.0 by PerdSonNoeud */
 .visual-refresh.theme-darker,
 .visual-refresh .theme-darker {
-  --background--floating: var(---noeud-floating-bg);
+  --background-floating: var(--noeud-floating-bg);
   --bg-brand: rebeccapurple;
 }
 

@@ -5,6 +5,23 @@
   --bg-brand: rebeccapurple;
 }
 
+.visual-refresh :is(html,
+body,
+.appMount__51fd7) {
+  background: none;
+}
+
+.app__160d8 {
+  background: var(--noeud-bg-filter);
+}
+
+.visual-refresh .bg__960e4 {
+  background: var(--noeud-bg-image);
+  background-attachment: fixed;
+  filter: cv("bg.app.filter");
+  z-index: -1;
+}
+
 .divider__908e2.hasContent__908e2 {
   border-color: transparent;
 }
@@ -93,7 +110,7 @@
   color: var(--noeud-closed-cat);
 }
 .visual-refresh .wrapperCommon__29444 .mainContent__29444[aria-expanded=true] {
-  color: var(--noeud-open-cat);
+  color: var(--noeud-opened-cat);
 }
 .visual-refresh .wrapper__29444:hover * {
   color: var(--noeud-hover-color);

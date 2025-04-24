@@ -1,0 +1,227 @@
+/**
+ * @name NoeudTheme
+ * @author PerdSonNoeud
+ * @description Custom theme.
+ * @version 1.0.0
+ */
+
+ :root {
+    --noeud-title-color:    rgb(150, 0, 255);
+
+    --noeud-category-color: rgb(210, 0, 255);
+    --noeud-closed-cat:     rgb(255, 0, 0);
+    --noeud-opened-cat:     rgb(0, 255, 0);
+    --noeud-hover-color:    rgb(255, 100, 210);
+
+    --noeud-select-channel: rgba(210, 0, 255, 0.5);
+    --noeud-second-channel: rgba(210, 0, 255, 0.2);
+
+    --noeud-floating-bg:    rgba(110, 0, 155, 0.8);
+    --noeud-mentioned:     rgba(216, 163, 92, 0.2);
+
+    --noeud-roles-color:    rgb(207, 227, 243);
+
+    --noeud-bg-url: url(https://raw.githubusercontent.com/PerdSonNoeud/NoeudTheme/refs/heads/main/image/Night_landscape.png);
+    --noeud-bg-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        var(--noeud-bg-url) center/cover no-repeat;
+    --noeud-bg-filter: linear-gradient(var(--noeud-bg-shading), var(--noeud-bg-shading));
+    --noeud-bg-filter2: linear-gradient(var(--noeud-bg-shading2), var(--noeud-bg-shading2));
+    --noeud-bg-shading: rgba(0, 0, 0, 0.3);
+    --noeud-bg-shading2: rgba(0, 0, 0, 0.6);
+    --noeud-bg-shading-percent: 100%;
+}
+
+.divider__908e2 {
+    border-top: 1px solid var(--noeud-floating-bg);
+}
+.divider__908e2.isUnread__908e2 {
+    border-top: 1px solid red;
+}
+
+.visual-refresh .content__908e2 {
+    background: var(--noeud-floating-bg);
+    color: white;
+}
+
+.mentioned__5126c {
+    background: var(--noeud-mentioned);
+}
+
+.visual-refresh .wrapper_f7ecac,
+.newMessagesBar__0f481 {
+    background: var(--noeud-floating-bg);
+}
+
+/* -- Background Image -- */
+.visual-refresh :is(html, body, #app-mount) {
+    background: none;
+}
+
+.visual-refresh .bg__960e4 {
+    background: var(--noeud-bg-image);
+    background-attachment: fixed;
+}
+
+.theme-darker .themed__9293f {
+    background: var(--noeud-bg-filter2);
+    border-bottom-right-radius: 10px;
+}
+
+.visual-refresh .themedBackground__74017,
+.members_c8ffbb,                        /* Members list */
+.member_c8ffbb,                         /* Member's BG  */
+.container_c8ffbb,                      /* Main Chat */
+.sidebar_c48ade .container__2637a,      /* Channel List */
+.visual-refresh .privateChannels__35e86,/* Src/Start Chat */
+.visual-refresh .scroller__99e7c,       /* Private Channel */
+.visual-refresh .sidebar_c48ade:after  /* idk why it's here */
+{
+    background: var(--noeud-bg-filter);
+}
+
+.visual-refresh .panels_c48ade {
+    background: var(--noeud-second-channel);
+}
+
+.visual-refresh :is(
+    .wrapper_cb9592,
+    .channelChatWrapper_cb9592,
+    .root_bfe55a,
+    .resizeHandle__01ae2
+) {
+    background: transparent;
+}
+
+.visual-refresh .callContainer_cb9592 {
+    background: var(--noeud-bg-filter);
+    border: 0;
+}
+
+.visual-refresh-chat-input .formWithLoadedChatInput_f75fb0:before {
+    display: none;
+}
+.container__01ae2 {
+    background: transparent;
+}
+.visual-refresh .chatContent_f75fb0 {
+    background: red;
+}
+
+.sidebar_c48ade .guilds_c48ade,         /* Server List */
+.visual-refresh .chat_f75fb0,
+.visual-refresh .chatContent_f75fb0,
+
+.visual-refresh .nowPlayingColumn__133bf,
+.container_133bf,
+.visual-refresh .tabBody__133bf,
+.visual-refresh .container__7d20c,
+.container_133bf {
+    background: transparent;
+}
+
+.visual-refresh .page_c48ade {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.visual-refresh
+:is(.container_c8ffbb, .privateChannels__35e86) {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.outer_c0bea0 {
+    margin-top: 5px;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.inner_c0bea0 {
+    border-radius: 15px !important;
+}
+
+.content_c48ade {
+    margin: 15px;
+    margin-top: 0px;
+    margin-left: 5px;
+}
+
+/* -- Floating Popup Background Color -- */
+.visual-refresh.theme-darker, 
+.visual-refresh .theme-darker {
+    --background-floating: var(--noeud-floating-bg);
+    --bg-brand: rebeccapurple;
+}
+
+/* -- Server Name -- */
+.name_f37cb1 {
+    color: var(--noeud-title-color);
+}
+
+/* --  Category -- */
+.name__29444 {
+    color: var(--noeud-category-color);
+}
+
+.mainContent__29444[aria-expanded="false"] {
+    color: var(--noeud-closed-cat);
+}
+
+.mainContent__29444[aria-expanded="true"] {
+    color: var(--noeud-opened-cat);
+}
+
+.wrapper__29444:hover * {
+    color: var(--noeud-hover-color);
+}
+
+/* -- Selected Channel (Private & Public) -- */
+.wrapper__2ea32.modeSelected__2ea32 .link__2ea32,
+.channel__972a0 .interactiveSelected__972a0 {
+    background-color: var(--noeud-select-channel) !important;
+}
+
+.wrapper__2ea32:hover .link__2ea32,
+.interactive_bf202d:hover {
+    background-color: var(--noeud-second-channel);
+}
+
+/* -- Role color -- */
+.visual-refresh .membersGroup_c8ffbb span {
+    display: flex;
+    align-items: center;
+    color: var(--noeud-roles-color);
+}
+
+.visual-refresh .membersGroup_c8ffbb span:before {
+    content: '';
+    height: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to left, var(--noeud-roles-color) 50%, transparent) !important;
+    margin-right: 5px;
+}
+
+.visual-refresh .membersGroup_c8ffbb span:after {
+    content: '';
+    height: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to right, var(--noeud-roles-color) 50%, transparent) !important;
+    margin-left: 5px;
+}
+
+/* -- Bottom Left Profile, 72px is the default size for server list -- */
+.visual-refresh .panels_c48ade {
+    left: calc(var(--space-xs) + 72px);
+    width: calc(100% - var(--space-xs) * 2 - 72px);
+}
+
+.visual-refresh .guilds_c48ade {
+    height: 100%;
+}
+
+/* -- Nitro buttons -- */
+.buttons__74017 > button {
+    display: none !important;
+}
+

@@ -22,6 +22,56 @@ body,
   z-index: -1;
 }
 
+.numberBadge__2b1f5,
+.textBadge__2b1f5 {
+  background: var(--noeud-floating-bg) !important;
+}
+
+.mediaBarProgress_b26b79, .mediaBarProgress_b26b79::before, .mediaBarProgress_b26b79::after {
+  background: var(--noeud-floating-bg);
+}
+
+.mediaBarGrabber_b26b79, .mediaBarInteraction_b26b79:hover .mediaBarGrabber_b26b79, .mediaBarInteractionDragging_b26b79 .mediaBarGrabber_b26b79 {
+  background: var(--noeud-floating-bg);
+}
+
+.notice__6e2b9 {
+  background: var(--custom-notice-background);
+}
+
+.colorBrand__6e2b9 {
+  --custom-notice-background: var(--noeud-floating-bg);
+}
+
+.colorDanger__6e2b9 {
+  --custom-notice-background: var(--noeud-danger);
+}
+
+.colorStreamerMode__6e2b9 {
+  --custom-notice-background: var(--noeud-streaming);
+}
+
+.visual-refresh .content_c48ade {
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.visual-refresh .chat_f75fb0 {
+  background: transparent;
+}
+.visual-refresh .chat_f75fb0[data-has-border=true] {
+  border: none;
+}
+.visual-refresh .chat_f75fb0.threadSidebarOpen_f75fb0 {
+  border-bottom-right-radius: 0;
+}
+.visual-refresh.theme-midnight .content_f75fb0 {
+  border: none;
+}
+.visual-refresh :is(.chatContent_f75fb0, .scroller__28a87) {
+  background: transparent;
+}
+
 .divider__908e2.hasContent__908e2 {
   border-color: transparent;
 }
@@ -54,24 +104,49 @@ body,
   display: none !important;
 }
 
-.membersGroup_c8ffbb {
+/* HEADER */
+:is(.theme-dark, .theme-light) .themed__9293f {
+  background: var(--noeud-bg-filter);
+}
+:is(.theme-dark, .theme-light) .dot__9293f {
+  display: none;
+}
+
+.visual-refresh .container_c8ffbb {
+  background: none;
+}
+.visual-refresh .members_c8ffbb {
+  background: var(--noeud-bg-filter);
+}
+.visual-refresh .member__5d473 {
+  background: transparent;
+}
+.visual-refresh .member__5d473:hover .childContainer__91a9d {
+  background: var(--noeud-hover);
+}
+.visual-refresh .membersGroup_c8ffbb {
+  background: transparent;
   display: flex;
   align-items: center;
   color: var(--noeud-roles-color);
 }
-.membersGroup_c8ffbb:before {
+.visual-refresh .membersGroup_c8ffbb:before {
   content: "";
   height: 2px;
   flex-grow: 1;
   background: linear-gradient(to left, currentColor 50%, transparent);
   margin-right: 5px;
 }
-.membersGroup_c8ffbb:after {
+.visual-refresh .membersGroup_c8ffbb:after {
   content: "";
   height: 2px;
   flex-grow: 1;
   background: linear-gradient(to right, currentColor 50%, transparent);
   margin-left: 5px;
+}
+
+.selected__91a9d .childContainer__91a9d {
+  background-color: var(--noeud-selected) !important;
 }
 
 .visual-refresh .panels_c48ade {
@@ -103,8 +178,14 @@ body,
   color: transparent;
 }
 
+.visual-refresh .guilds_c48ade {
+  background: transparent;
+  margin-top: 5px;
+  height: 100%;
+}
+
 .visual-refresh .wrapperCommon__29444 .mainContent__29444 .name__29444 {
-  color: var(--noeud-category-color);
+  color: var(--noeud-color-cat);
 }
 .visual-refresh .wrapperCommon__29444 .mainContent__29444[aria-expanded=false] {
   color: var(--noeud-closed-cat);
@@ -113,35 +194,42 @@ body,
   color: var(--noeud-opened-cat);
 }
 .visual-refresh .wrapper__29444:hover * {
-  color: var(--noeud-hover-color);
+  color: var(--noeud-hover-cat);
+}
+
+.visual-refresh .container__2637a,
+.visual-refresh .privateChannels__35e86 {
+  background: var(--noeud-bg-filter);
 }
 
 .wrapper__2ea32:hover .link__2ea32, .wrapper__2ea32.modeMuted__2ea32:hover .link__2ea32 {
-  background-color: var(--noeud-second-channel);
+  background-color: var(--noeud-hover);
 }
-.wrapper__2ea32 .modeSelected__2ea32 .link__2ea32 {
-  background-color: var(--noeud-select-channel) !important;
+.wrapper__2ea32.modeSelected__2ea32 .link__2ea32 {
+  background-color: var(--noeud-selected) !important;
 }
 
-.visual-refresh .name_f37cb1 {
-  color: var(--noeud-server-name);
+.visual-refresh .sidebar_c48ade::after {
+  background: transparent;
 }
 
 /* Default Variables */
 :root {
   --noeud-title-color: rgb(150, 0, 255);
-  --noeud-category-color: rgb(210, 0, 255);
+  --noeud-color-cat: rgb(210, 0, 255);
   --noeud-closed-cat: rgb(255, 0, 0);
   --noeud-opened-cat: rgb(0, 255, 0);
-  --noeud-hover-color: rgb(255, 100, 210);
-  --noeud-select-channel: rgba(210, 0, 255, 0.5);
-  --noeud-second-channel: rgba(210, 0, 255, 0.2);
+  --noeud-hover-cat: rgb(255, 100, 210);
+  --noeud-selected: rgba(210, 0, 255, 0.5);
+  --noeud-hover: rgba(210, 0, 255, 0.2);
   --noeud-floating-bg: rgba(110, 0, 155, 0.8);
+  --noeud-danger: rgba(255, 0, 0, 0.8);
+  --noeud-streaming: rgba(134, 0, 118, 0.8);
   --noeud-mentioned: rgba(216, 163, 92, 0.2);
   --noeud-roles-color: rgb(207, 227, 243);
   --noeud-bg-url: url(https://raw.githubusercontent.com/PerdSonNoeud/NoeudTheme/refs/heads/main/image/Night_landscape.png);
   --noeud-bg-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     var(--noeud-bg-url) center/cover no-repeat;
   --noeud-bg-filter: linear-gradient(
     var(--noeud-bg-shading),

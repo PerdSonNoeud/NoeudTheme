@@ -1,0 +1,52 @@
+@use "backend" as *;
+
+// MEMBER GROUP
+#{c(main visualRefresh)} {
+  #{c(memberList container)} {
+    // Member list background
+    background: none;
+  }
+  #{c(memberList members)} {
+    // Member list per role background
+    background: var(--noeud-bg-filter);
+  }
+  #{c(memberList member)} {
+    // Member background
+    background: transparent;
+    &:hover {
+      #{c(memberList childContainer)} {
+        background: var(--noeud-hover);
+      }
+    }
+  }
+  #{c(memberList group)} {
+    // Role name background
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    color: var(--noeud-roles-color);
+
+    &:before {
+      content: "";
+      height: 2px;
+      flex-grow: 1;
+      background: linear-gradient(to left, currentColor 50%, transparent);
+      margin-right: 5px;
+    }
+
+    &:after {
+      content: "";
+      height: 2px;
+      flex-grow: 1;
+      background: linear-gradient(to right, currentColor 50%, transparent);
+      margin-left: 5px;
+    }
+  }
+}
+
+#{c(memberList selected)} {
+  #{c(memberList childContainer)} {
+    background-color: var(--noeud-selected) !important;
+  }
+}

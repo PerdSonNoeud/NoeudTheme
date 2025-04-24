@@ -1,0 +1,6 @@
+@use 'backend' as *;
+
+#{c(badges number)},
+#{c(badges text)} {
+    background: var(--noeud-floating-bg) !important;
+}

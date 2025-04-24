@@ -1,0 +1,28 @@
+@use "backend" as *;
+
+#{c(main visualRefresh)} {
+  #{c(sidebar server category wrapperCommon)} {
+    #{c(sidebar server category mainContent)} {
+      // Color of the icon when the category name
+      #{c(sidebar server category name)} {
+        color: var(--noeud-color-cat);
+      }
+      // Color of the icon when the category is closed
+      &[aria-expanded="false"] {
+        color: var(--noeud-closed-cat);
+      }
+      // Color of the icon when the category is open
+      &[aria-expanded="true"] {
+        color: var(--noeud-opened-cat);
+      }
+    }
+  }
+  // Hover a category
+  #{c(sidebar server category wrapper)} {
+    &:hover {
+      * {
+        color: var(--noeud-hover-cat);
+      }
+    }
+  }
+}

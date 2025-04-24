@@ -1,0 +1,9 @@
+@use "backend" as *;
+
+#{c(main visualRefresh)} {
+  #{c(guildList guilds)} {
+    background: transparent;
+    margin-top: 5px;
+    height: 100%;
+  }
+}

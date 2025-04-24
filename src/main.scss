@@ -1,0 +1,44 @@
+@use "start" as *;
+/*! #{$themeName} v#{$version} by #{$author} */
+
+// Import functions, variables, mixins and class list functionality
+@use "backend" as *;
+
+// Contains the theme properties
+@use "theme";
+
+/* Default Variables */
+:root {
+  --noeud-title-color: rgb(150, 0, 255);
+
+  --noeud-color-cat: rgb(210, 0, 255);
+  --noeud-closed-cat: rgb(255, 0, 0);
+  --noeud-opened-cat: rgb(0, 255, 0);
+  --noeud-hover-cat: rgb(255, 100, 210);
+
+  --noeud-selected: rgba(210, 0, 255, 0.5);
+  --noeud-hover: rgba(210, 0, 255, 0.2);
+
+  --noeud-floating-bg: rgba(110, 0, 155, 0.8);
+  --noeud-danger: rgba(255, 0, 0, 0.8);
+  --noeud-streaming: rgba(134, 0, 118, 0.8);
+  --noeud-mentioned: rgba(216, 163, 92, 0.2);
+
+  --noeud-roles-color: rgb(207, 227, 243);
+
+  --noeud-bg-url: url(https://raw.githubusercontent.com/PerdSonNoeud/NoeudTheme/refs/heads/main/image/Night_landscape.png);
+  --noeud-bg-image:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    var(--noeud-bg-url) center/cover no-repeat;
+  --noeud-bg-filter: linear-gradient(
+    var(--noeud-bg-shading),
+    var(--noeud-bg-shading)
+  );
+  --noeud-bg-filter2: linear-gradient(
+    var(--noeud-bg-shading2),
+    var(--noeud-bg-shading2)
+  );
+  --noeud-bg-shading: rgba(0, 0, 0, 0.3);
+  --noeud-bg-shading2: rgba(0, 0, 0, 0.6);
+  --noeud-bg-shading-percent: 100%;
+}

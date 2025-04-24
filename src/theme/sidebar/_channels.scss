@@ -1,0 +1,24 @@
+@use "backend" as *;
+
+#{c(main visualRefresh)} {
+  #{c(sidebar server container)},
+  #{c(sidebar private channels)} {
+    background: var(--noeud-bg-filter);
+  }
+}
+#{c(sidebar server channels wrapper)} {
+  // HOVER
+  &:hover,
+  &#{c(sidebar server channels muted)}:hover {
+    #{c(sidebar server channels link)} {
+      background-color: var(--noeud-hover);
+    }
+  }
+
+  // SELECTED
+  &#{c(sidebar server channels selected)} {
+    #{c(sidebar server channels link)} {
+      background-color: var(--noeud-selected) !important;
+    }
+  }
+}

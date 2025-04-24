@@ -1,0 +1,8 @@
+@use "backend" as *;
+
+#{c(main visualRefresh)} {
+  #{c(main content)} {
+    margin-bottom: 15px;
+    margin-right: 15px;
+  }
+}

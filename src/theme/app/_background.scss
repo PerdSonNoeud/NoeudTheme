@@ -1,0 +1,25 @@
+@use "backend" as *;
+
+// TRANSPARENT BG
+#{c(main visualRefresh)} {
+  :is(
+		html, // might be needed for injectors
+		body,
+		#{c(main appMount)}
+	) {
+    background: none;
+  }
+}
+
+// BACKGROUND IMAGE
+#{c(main appInner)} {
+  background: var(--noeud-bg-filter);
+}
+#{c(main visualRefresh)} {
+  #{c(main bg)} {
+    background: var(--noeud-bg-image);
+    background-attachment: fixed;
+    filter: cv("bg.app.filter");
+    z-index: -1;
+  }
+}

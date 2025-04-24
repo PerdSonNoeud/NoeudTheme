@@ -1,0 +1,7 @@
+@use 'backend' as *;
+
+#{c(chatForm buttons)} {
+  > button {
+    display: none !important;
+  }
+}

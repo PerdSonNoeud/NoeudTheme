@@ -1,0 +1,37 @@
+@use "backend" as *;
+
+// Account Panel
+#{c(main visualRefresh)} {
+  #{c(sidebar panel panels)} {
+    $guilds_width: 72px;
+    left: calc(var(--space-xs) + #{$guilds_width});
+    width: calc(100% - var(--space-xs) * 2 - #{$guilds_width});
+  }
+}
+
+// ACTIVITY
+:is(#{c(main themeLight)}, #{c(main themeDark)}) {
+  #{c(sidebar panel activity panel)} {
+    background-color: transparent;
+  }
+}
+
+// QUEST
+:is(#{c(main themeLight)}, #{c(main themeDark)}) {
+  #{c(sidebar panel quest wrapper)} {
+    background: transparent;
+  }
+}
+#{c(sidebar panel quest contentWrapper)} {
+  background: none !important;
+}
+#{c(sidebar panel quest postEnrollmentCollapsed)},
+#{c(sidebar panel quest postEnrollmentExpanded)} {
+  background-image: none !important;
+  background-color: transparent;
+  border: none;
+}
+#{c(sidebar panel quest headerText)},
+#{c(sidebar panel quest submenuIcon)} {
+  color: transparent; // hide when collapsed
+}

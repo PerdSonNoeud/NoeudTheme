@@ -1,0 +1,16 @@
+@use 'backend' as *;
+
+#{c(notice base)} {
+  background: var(--custom-notice-background);
+}
+
+// CUSTOM COLOURS
+#{c(notice colorBrand)} {
+  --custom-notice-background: var(--noeud-floating-bg);
+}
+#{c(notice colorDanger)} {
+  --custom-notice-background: var(--noeud-danger);
+}
+#{c(notice colorStreamerMode)} {
+  --custom-notice-background: var(--noeud-streaming);
+}

@@ -1,0 +1,11 @@
+@use 'backend' as *;
+
+/* HEADER */
+:is(#{c(main themeDark)}, #{c(main themeLight)}) {
+  #{c(header themed)} {
+    background: var(--noeud-bg-filter);
+  }
+  #{c(header dot)} {
+    display: none;
+  }
+}

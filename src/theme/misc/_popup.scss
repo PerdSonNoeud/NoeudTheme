@@ -1,0 +1,9 @@
+@use "backend" as *;
+
+#{c(main visualRefresh)} {
+  &#{c(main themeDarker)},
+  #{c(main themeDarker)} {
+    --background-floating: var(--noeud-floating-bg);
+    --bg-brand: rebeccapurple;
+  }
+}

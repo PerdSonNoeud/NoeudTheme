@@ -1,6 +1,12 @@
 @use "backend" as *;
 
 #{c(main visualRefresh)} {
+  // HEADER - COMMUNITY/BANNER
+  #{c(sidebar server header bannerContainer)} {
+    background-color: transparent;
+    border: none;
+  }
+
   #{c(sidebar server container)},
   #{c(sidebar private channels)} {
     background: var(--noeud-bg-filter);

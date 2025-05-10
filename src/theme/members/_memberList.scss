@@ -5,10 +5,12 @@
   #{c(memberList container)} {
     // Member list background
     background: none;
+    border: none;
   }
   #{c(memberList members)} {
     // Member list per role background
     background: var(--noeud-bg-filter);
+    border-bottom-right-radius: 20px;
   }
   #{c(memberList member)} {
     // Member background

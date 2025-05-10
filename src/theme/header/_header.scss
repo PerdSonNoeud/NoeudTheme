@@ -1,6 +1,5 @@
-@use 'backend' as *;
+@use "backend" as *;
 
-/* HEADER */
 :is(#{c(main themeDark)}, #{c(main themeLight)}) {
   #{c(header themed)} {
     background: var(--noeud-bg-filter);

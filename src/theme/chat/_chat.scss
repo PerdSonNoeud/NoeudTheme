@@ -1,11 +1,11 @@
-@use 'backend' as *;
+@use "backend" as *;
 
 // BACKGROUND
 #{c(main visualRefresh)} {
   #{c(chat chat)} {
     background: transparent;
 
-    &[data-has-border='true'] {
+    &[data-has-border="true"] {
       border: none;
     }
     &#{c(chat threadSidebarOpen)} {

@@ -1,9 +1,16 @@
-@use 'backend' as *;
-
+@use "backend" as *;
+#{c(os win)} {
+  #{c(sidebar sidebar)} {
+    border-radius: 0;
+  }
+}
 #{c(main visualRefresh)} {
   #{c(sidebar sidebar)} {
     &::after {
-        background: transparent;
+      display: none;
     }
+  }
+  #{c(sidebar list)} {
+    border: none;
   }
 }

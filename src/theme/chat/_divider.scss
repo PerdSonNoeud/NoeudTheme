@@ -1,4 +1,4 @@
-@use 'backend' as *;
+@use "backend" as *;
 
 #{c(chat divider divider)} {
   // ALLOWS NO BACKGROUND WITH DATE
@@ -18,7 +18,7 @@
 #{c(chat divider content)} {
   &::before,
   &::after {
-    content: '';
+    content: "";
     height: 1px;
     flex-grow: 1;
     background: var(--noeud-floating-bg);

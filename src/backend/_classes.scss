@@ -324,7 +324,7 @@ $classes: (
     'loader': 'loader_c48ade',
 
     // probably used elsewhere but 100% used for loading "Browse Channels" for the first time during a session.
-    'ring': 'focus-rings-ring',
+    'focusRing': 'focus-rings-ring',
 
     // tab around to see this, other extra classes may appear in other areas.
     // Visual Refresh stuff
@@ -738,8 +738,9 @@ $classes: (
     'root': 'root_bfe55a',
     'idle': 'idle_bfe55a',
     // applied when screen sharing and not hovered, hides controls (and children of)
-    'rootChild': 'root_c8dbe9',
-    // a child to root above
+    'gradientBackground': 'gradientBackground__11664',
+    'gradientSphere': 'sphere__11664',
+    // both above are seen in empty vc
     'voiceCallWrapper': 'voiceCallWrapper_a21736',
     // paired with rootChild
     'transition': 'transition_c8dbe9',
@@ -775,7 +776,8 @@ $classes: (
     'bottomControls': 'bottomControls_bfe55a',
     'eventPromptsContainer': 'eventPromptsContainer__1405b',
     'buttonsWrapper': 'wrapper__1405b',
-    'controlButton': 'controlButton__1405b',
+    'buttonSection': 'buttonSection__1405b',
+    'buttonSectionExperiment': 'experimentButtonSection__1405b',
     'fauxDisabled': 'fauxDisabled__666fa',
     // used when camera isn't plugged in
     'contextMenuContainer': 'contextMenuContainer_f1ceac',
@@ -1246,6 +1248,8 @@ $classes: (
     'formContainer': 'formContainer_d9be46',
     'form': 'form_d9be46',
     'titleContainer': 'titleContainer_d9be46',
+    'textArea': 'channelTextArea_d9be46',
+    'textAreaInner': 'channelTextAreaInner_d9be46',
 
     'title': 'title_d9be46',
     'searchIcon': 'searchIcon_d9be46',
@@ -1865,8 +1869,8 @@ $classes: (
       'cardDetails': 'guildDetails__4cb8a',
       'cardTitle': 'title__4cb8a',
       'cardMemberDetails': 'memberDetails__4cb8a',
-      'cardDotOnline': 'presenceCountDot__4cb8a',
-      'cardStatusOffline': 'memberCountDot__4cb8a',
+      'onlineDot': 'presenceCountDot__4cb8a',
+      'offlineDot': 'memberCountDot__4cb8a',
       'searchContainer': 'container_cbd375',
       'searchNoResult': 'container__74f3e',
     ),
@@ -2157,6 +2161,7 @@ $classes: (
     'addFriendEmptyState': 'emptyState__94b08',
     // below the grid which was hit with a display none
     'addFriendInputWrapper': 'addFriendInputWrapper__72ba7',
+    'addFriendInput': 'input__72ba7',
 
     'empty': 'friendsEmpty_c7ea19',
     'emptyImage': 'image__33d12',
@@ -2482,6 +2487,7 @@ $classes: (
     'hiddenMembers': 'hiddenMembers_c8ffbb',
     'members': 'members_c8ffbb',
     'group': 'membersGroup_c8ffbb',
+
     'activityHeader': 'header__095fe',
     'activityContainer': 'container__0f2e8',
     'activityContainerSelected': 'selected__0f2e8',
@@ -2489,6 +2495,7 @@ $classes: (
     'activityPopoutInteractionsHeader': 'interactionsContainerHeader_af3b89',
     'activityPopoutInteractions': 'interactionsContainer_af3b89',
     'activityPopoutShareToChannelButton': 'shareToChannelButton_af3b89',
+
     'member': 'member__5d473',
     'memberBackground': 'member_c8ffbb',
     'memberClickable': 'clickable__91a9d',
@@ -2504,13 +2511,21 @@ $classes: (
     'contentName': 'content__91a9d',
     'ownerIcon': 'ownerIcon__5d473',
     'name': 'name__91a9d',
+    'nameContainer': 'nameContainer__703b9',
     'usernameInner': 'username__703b9',
     'offline': 'offline__5d473',
-    'activity': 'activityText__5d473',
     'placeholderMemberGroups': 'memberGroupsPlaceholder_c8ffbb',
     'placeholderAvatar': 'placeholderAvatar__27cc6',
     'placeholderUsername': 'placeholderUsername__27cc6',
     'placeholderUsernameMultiple': 'mulitplePlaceholderUsername__27cc6',
+
+    // activity status
+    'activityIcon': 'icon_c9d15c',
+    // shows up when a user is playing a game or listening to music -- SHARED IN OTHER PLACES IN APP
+    'activityQuestsIcon': 'questsIcon_c9d15c',
+    // presumably this is used with quests. -- SHARED IN OTHER PLACES IN APP
+    'activityEmoji': 'emoji_c9d15c',
+    'activityText': 'truncated_c9d15c',
 
     // click on user with quest badge
     'quest': (
@@ -2579,8 +2594,6 @@ $classes: (
     // The contents of these notices are in English because yes.
     'completeSteps': 'notice__30f28',
     // contents: "You must complete a few more steps before you can start talking in this server."
-    'viewServerAsRole': 'notice_c9e42f',
-    // contents: "You are viewing this server as $count role(s)."
     'previewServerNotice': 'notice_c5cd6a',
   ),
   // These appear to be shared between profile popout and server settings. likely used elsewhere too.
@@ -2708,7 +2721,9 @@ $classes: (
     )
   ),
 
-  'guildList': (
+  'guildList': (    
+    'focusStroke': 'focusStroke_cc5dd2',
+    
     'guilds': 'guilds_c48ade',
     'wrapper': 'wrapper_ef3116',
     'hidden': 'hidden_ef3116',
@@ -2867,27 +2882,16 @@ $classes: (
         // paired with "layout" class-wise. shows when user is playing game or has custom status, always shows with group.
         'subtext': 'subtext__972a0',
         // child to subtextLayout
-        'subtextText': 'text__8ac07',
-        'activity': 'activity__972a0',
 
         // shows for user when they're doing something, use subtext:not(activity) to only target group
-        'emoji': 'emoji_e463a5',
-        // SHARED IN OTHER PLACES IN APP; ANY STATUS WITH EMOJI HAS THIS
-        'activityEmoji': 'activityEmoji__972a0',
-        'activityText': 'activityText__972a0',
+        'emoji': 'emoji_c9d15c',
+        'activityText': 'activityStatusText__972a0',
         // two elements have this, used for regular and paired with textRuler with aria-hidden=true
-        'textRuler': 'textRuler_c9d15c',
-        // simply hides it -- SHARED IN OTHER PLACES IN APP
-        'activityIcon': 'icon_c9d15c',
-        // shows up when a user is playing a game or listening to music -- SHARED IN OTHER PLACES IN APP
-        'activityQuestsIcon': 'questsIcon_c9d15c',
 
-        // presumably this is used with quests. -- SHARED IN OTHER PLACES IN APP
         'closeButton': 'closeButton__972a0',
-
         // click to close dm or leave group chat
-        'loadingEmpty': 'empty__99e7c',
 
+        'loadingEmpty': 'empty__99e7c',
         // you'll quickly see it when you reload on the friends list
         // These have color and background attached to them. Use these instead of channelInteractive.
         'interactiveBG': 'interactive_bf202d',
@@ -3549,10 +3553,11 @@ $classes: (
       'showOutOfBoundaryComponents': 'showOutOfBoundaryComponents_c69a7b',
 
       // profile backgrounds
-      'themed': 'custom-user-profile-theme',
+      'customTheme': 'custom-user-profile-theme',
+      'userPopout': 'user-profile-popout',
+      'userModal': 'user-profile-modal',
+      'userSidebar': 'user-profile-sidebar',
       'overlay': 'overlay_c0bea0',
-      'biteSize': 'biteSize_c0bea0',
-      'fullSize': 'fullSize_c0bea0',
       'outer': 'outer_c0bea0',
       'inner': 'inner_c0bea0',
 
@@ -3579,13 +3584,14 @@ $classes: (
           'panel': 'panel__63ed3',
           'fullSize': 'fullSize__63ed3',
           'nicknameIcons': 'nicknameIcons__63ed3',
-          'usernameRow': 'usernameRow__63ed3',
+          'usernameRow': 'usernameRow__63ed3',     
+          'usernameContainer': 'container__63ed3',
           'tags': 'tags__63ed3',
           'userTag': 'userTag__63ed3',
           'pronounsTooltip': 'pronounsTooltip__63ed3',
           'pronouns': 'pronouns__63ed3',
           'userTagDiscriminator': 'userTagDiscriminator__63ed3',
-          'dotSpacer': 'dotSpacer__63ed3',
+          'dotSpacer': 'dotSpacer__63ed3',     
         ),
 
       // shared between modal+panel+popout (not self)+status
@@ -3622,212 +3628,68 @@ $classes: (
 
       // actually used on the modal!
       'memberSince': (
-          'wrapper': 'memberSinceWrapper_c4eb81',
-          'container': 'memberSince_c4eb81',
-          'discordIcon': 'discordIcon_c4eb81',
-          'divider': 'divider_c4eb81',
-        ),
+        'wrapper': 'memberSinceWrapper_c4eb81',
+        'container': 'memberSince_c4eb81',
+        'discordIcon': 'discordIcon_c4eb81',
+        'divider': 'divider_c4eb81',
+      ),
 
-      // only here because Yes
-      // what classes are actually used i have no fucking idea.
-      // this was all from ONE line. it's horrible.
-      'activity': (
-          'ellipsis': 'ellipsis__2ef49',
-          'headerContainer': 'headerContainer__2ef49',
-          'headerText': 'headerText__2ef49',
-          'headerTextNormal': 'headerTextNormal__2ef49',
-          'headerTextEmptyBody': 'headerTextEmptyBody__2ef49',
-          'body': 'body__2ef49',
-          'bodyAlignCenter': 'bodyAlignCenter__2ef49',
-          'bodyNormal': 'bodyNormal__2ef49',
-          'gameIcon': 'gameIcon__2ef49',
-          'screenshareIcon': 'screenshareIcon__2ef49',
-          'textRow': 'textRow__2ef49',
-          'details': 'details__2ef49',
-          'nameNormal': 'nameNormal__2ef49',
-          'playTime': 'playTime__2ef49',
-          'state': 'state__2ef49',
-          'timestamp': 'timestamp__2ef49',
-          'detailsWrap': 'detailsWrap__2ef49',
-          'nameWrap': 'nameWrap__2ef49',
-          'name': 'name__2ef49',
-          'activityName': 'activityName__2ef49',
-          'bodyLink': 'bodyLink__2ef49',
-          'twitchImageContainer': 'twitchImageContainer__2ef49',
-          'twitchImageOverlay': 'twitchImageOverlay__2ef49',
-          'twitchBackgroundImage': 'twitchBackgroundImage__2ef49',
-          'streamUsername': 'streamUsername__2ef49',
-          'streamName': 'streamName__2ef49',
-          'streamGame': 'streamGame__2ef49',
-          'activityVoiceChannel': 'activityVoiceChannel__2ef49',
-          'platformIcon': 'platformIcon__2ef49',
-          'icon': 'icon__2ef49',
+      'playing': (
+        'container': 'toolbarContainer__39ec2',
+        'clickableContainer': 'clickableContainer__39ec2',
+        'card': 'card__39ec2',
+        'header': 'header__39ec2',
+        'headerText': 'headerText__39ec2',
+        'body': 'body__39ec2',
+        'content': 'content__39ec2',
 
-          'assets': (
-            'assets': 'assets__2ef49',
-            'assetsProfile': 'assetsProfile_c1d9fd',
-            'assetsProfileV2': 'assetsProfileV2_c1d9fd',
-
-            'largeMask': (
-              'streamPreview': 'assetsLargeMaskStreamPreview__2ef49',
-              'userPopout': 'assetsLargeMaskUserPopout_c1d9fd',
-              'userPopoutV2': 'assetsLargeMaskUserPopoutV2_c1d9fd',
-              'voiceChannel': 'assetsLargeMaskVoiceChannel__2ef49',
-              'activityFeed': 'assetsLargeMaskActivityFeed__2ef49',
-              'profile': 'assetsLargeMaskProfile_c1d9fd',
-              'profileV2': 'assetsLargeMaskProfileV2_c1d9fd',
-            ),
-
-            'largeImage': (
-              'image': 'assetsLargeImage__2ef49',
-              'spotify': 'assetsLargeImageSpotify__2ef49',
-              'streamPreview': 'assetsLargeImageStreamPreview__2ef49',
-              'streamPreviewXbox': 'assetsLargeImageStreamPreviewXbox__2ef49',
-              'userPopout': 'assetsLargeImageUserPopout_c1d9fd',
-              'userPopoutV2': 'assetsLargeImageUserPopoutV2_c1d9fd',
-              'userPopoutV2Xbox': 'assetsLargeImageUserPopoutV2Xbox_c1d9fd',
-              'userPopoutXbox': 'assetsLargeImageUserPopoutXbox_c1d9fd',
-              'activityFeed': 'assetsLargeImageActivityFeed__2ef49',
-              'activityFeedXbox': 'assetsLargeImageActivityFeedXbox__2ef49',
-              'profile': 'assetsLargeImageProfile_c1d9fd',
-              'profileV2': 'assetsLargeImageProfileV2_c1d9fd',
-              'voiceChannel': 'assetsLargeImageVoiceChannel__2ef49',
-              'activityFeedTwitch': 'assetsLargeImageActivityFeedTwitch__2ef49',
-              'profileV2Xbox': 'assetsLargeImageProfileV2Xbox_c1d9fd',
-              'profileXbox': 'assetsLargeImageProfileXbox_c1d9fd',
-              'profileTwitch': 'assetsLargeImageProfileTwitch_c1d9fd',
-              'profileV2Twitch': 'assetsLargeImageProfileV2Twitch_c1d9fd',
-            ),
-
-            'smallImage': (
-              'image': 'assetsSmallImage__2ef49',
-              'streamPreview': 'assetsSmallImageStreamPreview__2ef49',
-              'userPopout': 'assetsSmallImageUserPopout_c1d9fd',
-              'userPopoutV2': 'assetsSmallImageUserPopoutV2_c1d9fd',
-              'boiceChannel': 'assetsSmallImageVoiceChannel__2ef49',
-              'activityFeed': 'assetsSmallImageActivityFeed__2ef49',
-              'profile': 'assetsSmallImageProfile_c1d9fd',
-              'profileV2': 'assetsSmallImageProfileV2_c1d9fd',
-
-              'withoutLarge': (
-                'activityFeed': 'assetsSmallImageActivityFeedWithoutLargeImage__2ef49',
-                'profileV2': 'assetsSmallImageProfileV2WithoutLargeImage_c1d9fd',
-                'profile': 'assetsSmallImageProfileWithoutLargeImage_c1d9fd',
-                'streamPreview': 'assetsSmallImageStreamPreviewWithoutLargeImage__2ef49',
-                'userPopoutV2': 'assetsSmallImageUserPopoutV2WithoutLargeImage_c1d9fd',
-                'userPopout': 'assetsSmallImageUserPopoutWithoutLargeImage_c1d9fd',
-                'voiceChannel': 'assetsSmallImageVoiceChannelWithoutLargeImage__2ef49',
-              ),
-            ),
-          ),
-
-          'content': (
-            'content': 'content__2ef49',
-            'images': (
-              'activityFeed': 'contentImagesActivityFeed__2ef49',
-              'profile': 'contentImagesProfile_c1d9fd',
-              'profileV2': 'contentImagesProfileV2_c1d9fd',
-              'streamPreview': 'contentImagesStreamPreview__2ef49',
-              'userPopout': 'contentImagesUserPopout_c1d9fd',
-              'userPopoutV2': 'contentImagesUserPopoutV2_c1d9fd',
-              'voiceChannel': 'contentImagesVoiceChannel__2ef49',
-            ),
-            'noImages': (
-              'activityFeed': 'contentNoImagesActivityFeed__2ef49',
-              'profile': 'contentNoImagesProfile_c1d9fd',
-              'profileV2': 'contentNoImagesProfileV2_c1d9fd',
-              'streamPreview': 'contentNoImagesStreamPreview__2ef49',
-              'userPopout': 'contentNoImagesUserPopout_c1d9fd',
-              'userPopoutV2': 'contentNoImagesUserPopoutV2_c1d9fd',
-              'voiceChannel': 'contentNoImagesVoiceChannel__2ef49',
-            ),
-            'gameImages': (
-              'profile': 'contentGameImageProfile_c1d9fd',
-              'profileV2': 'contentGameImageProfileV2_c1d9fd',
-              'streamPreview': 'contentGameImageStreamPreview__2ef49',
-              'userPopout': 'contentGameImageUserPopout_c1d9fd',
-              'userPopoutV2': 'contentGameImageUserPopoutV2_c1d9fd',
-              'voiceChannel': 'contentGameImageVoiceChannel__2ef49',
-            ),
-          ),
-
-          'timeBar': (
-            'activityFeed': 'timeBarActivityFeed__2ef49',
-            'profile': 'timeBarProfile_c1d9fd',
-            'profileV2': 'timeBarProfileV2_c1d9fd',
-            'userPopout': 'timeBarUserPopout_c1d9fd',
-            'userPopoutV2': 'timeBarUserPopoutV2_c1d9fd',
-            'voiceChannel': 'timeBarVoiceChannel__2ef49',
-          ),
-
-          'activity': (
-            'activityFeed': 'activityActivityFeed__2ef49',
-            'profile': 'activityProfile_c1d9fd',
-            'profileV2': 'activityProfileV2_c1d9fd',
-            'streamPreview': 'activityStreamPreview__2ef49',
-            'userPopout': 'activityUserPopout_c1d9fd',
-            'userPopoutV2': 'activityUserPopoutV2_c1d9fd',
-          ),
-
-          // these were not on the same line tho
-          'actions': (
-              'activityFeed': 'actionsActivityFeed__34f7d',
-              'profile': 'actionsProfile__34f7d',
-              'profileV2': 'actionsProfileV2__34f7d',
-              'streamPreview': 'actionsStreamPreview__34f7d',
-
-              'errorImage': 'errorImage__34f7d',
-              'cannotLaunchImage': 'cannotLaunchImage__34f7d',
-            ),
-        ),
+        'imageClickable': 'clickable_ef9ae7',
+        'imageContainer': 'imageContainer_ef9ae7',
+        'contentimage': 'contentImage_ef9ae7',
+      ),
 
       // The Spotify playback bar seems to be on its own line and could be used elsewhere, not just in profiles
       'playbackBar': (
-          'bar': 'bar_c8b06d',
-          'barInMultiLine': 'barInMultiLine_c8b06d',
-          'barInner': 'barInner_c8b06d',
-          'barInSingleLine': 'barInSingleLine_c8b06d',
-          'singleLineContainer': 'singleLineContainer_c8b06d',
+        'bar': 'bar_c8b06d',
+        'barInMultiLine': 'barInMultiLine_c8b06d',
+        'barInner': 'barInner_c8b06d',
+        'barInSingleLine': 'barInSingleLine_c8b06d',
+        'singleLineContainer': 'singleLineContainer_c8b06d',
 
-          'themed': 'themed_c8b06d',
+        'themed': 'themed_c8b06d',
 
-          'text': 'text_c8b06d',
-          'textLeft': 'textLeft_c8b06d',
-          'textRight': 'textRight_c8b06d',
-          'textLeftInSingleLine': 'textLeftInSingleLine_c8b06d',
-        ),
+        'text': 'text_c8b06d',
+        'textLeft': 'textLeft_c8b06d',
+        'textRight': 'textRight_c8b06d',
+        'textLeftInSingleLine': 'textLeftInSingleLine_c8b06d',
+      ),
 
       // Modal: right click on user in same spots and click "View Profile"
       'modal': (
-          'root': 'root__24502',
-          'headerInner': 'headerInner__24502',
+        'root': 'root__24502',
+        'headerInner': 'headerInner__24502',
+        'body': 'body__24502',
 
-          'body': 'body__24502',
-
-          'usernameContainer': 'container__63ed3',
-          'usernameRow': 'usernameRow__63ed3',
-          'nickname': 'nickname__63ed3',
-
-          // cannot find these but they're in the same rule as connections
-          'connections': (
-              'accounts': 'connectedAccounts_e6abe8',
-              'column': 'connectedAccountsColumn_e6abe8',
-              'container': 'connectedAccountContainer_e6abe8',
-              'containerWithMetadata': 'connectedAccountContainerWithMetadata_e6abe8',
-              'account': 'connectedAccount_e6abe8',
-              'children': 'connectedAccountChildren_e6abe8',
-              'childrenNoIcon': 'connectedAccountChildrenNoIcon_e6abe8',
-              'poweredBy': 'connectedAccountPoweredBy_e6abe8',
-              'poweredByText': 'connectedAccountPoweredByText_e6abe8',
-              'icon': 'connectedAccountIcon_e6abe8',
-              'nameContainer': 'connectedAccountNameContainer_e6abe8',
-              'name': 'connectedAccountName_e6abe8',
-              'nameTextContainer': 'connectedAccountNameTextContainer_e6abe8',
-              'nameText': 'connectedAccountNameText_e6abe8',
-              'verifiedIcon': 'connectedAccountVerifiedIcon_e6abe8',
-              'hideIcon': 'connectedAccountHideIcon_e6abe8',
-              'openIcon': 'connectedAccountOpenIcon_e6abe8',
-            ),
+        // cannot find these but they're in the same rule as connections
+        'connections': (
+            'accounts': 'connectedAccounts_e6abe8',
+            'column': 'connectedAccountsColumn_e6abe8',
+            'container': 'connectedAccountContainer_e6abe8',
+            'containerWithMetadata': 'connectedAccountContainerWithMetadata_e6abe8',
+            'account': 'connectedAccount_e6abe8',
+            'children': 'connectedAccountChildren_e6abe8',
+            'childrenNoIcon': 'connectedAccountChildrenNoIcon_e6abe8',
+            'poweredBy': 'connectedAccountPoweredBy_e6abe8',
+            'poweredByText': 'connectedAccountPoweredByText_e6abe8',
+            'icon': 'connectedAccountIcon_e6abe8',
+            'nameContainer': 'connectedAccountNameContainer_e6abe8',
+            'name': 'connectedAccountName_e6abe8',
+            'nameTextContainer': 'connectedAccountNameTextContainer_e6abe8',
+            'nameText': 'connectedAccountNameText_e6abe8',
+            'verifiedIcon': 'connectedAccountVerifiedIcon_e6abe8',
+            'hideIcon': 'connectedAccountHideIcon_e6abe8',
+            'openIcon': 'connectedAccountOpenIcon_e6abe8',
+          ),
 
           'listScroller': 'listScroller__9d78f',
           'listRow': 'listRow__9d78f',
@@ -3847,52 +3709,29 @@ $classes: (
           'guildNick': 'guildNick_aafe31',
         ),
 
-      // Panel: Go to the DMs of someone while your screen is larger than
+      // Go to the DMs of someone while your screen is larger than
       // 1132px wide and you've not disabled the panel via header
-      'panel': (
-          'panel': 'panel_c0bea0',
-          'container': 'container_a823cd',
+      'sidebar': (
+        'body': 'body__486c9',
+        'bodyOverlay': 'overlay__486c9',
+        // used over "about me/member since" container
 
-          'activity': 'activity__747b1',
-
-          'body': 'body__747b1',
-          'bodyOverlay': 'overlay__747b1',
-
-          // used over "about me/member since" container
-          'guildProfile': 'guildNick_b26403',
-          // nickname
-          'guildAvatar': 'guildAvatar_b26403',
-          // not for icons but rather people with nitro and custom avi
-          'guildAvatarWithoutIcon': 'guildAvatarWithoutIcon_b26403',
-
-          // encompass both mutual servers and mutual friends
-          'connectionsOverlay': 'overlay__325ce',
-          'connectionsList': 'list__325ce',
-          'connectionsDivider': 'divider__325ce',
-
-          // individual list for mutual friends/servers
-          'connectionList': 'connectionList_a4a127',
-          'collapsed': 'isCollapsed_a4a127',
-          'collapseButton': 'collapseBtn_a4a127',
-          'collapseButtonContent': 'collapseBtnContent_a4a127',
-          'collapseButtonIcon': 'iconWrapper_a4a127',
-        ),
+        // encompass both mutual servers and mutual friends
+        'connectionsOverlay': 'overlay_d04d18',
+        'connectionsList': 'list_d04d18',
+        'connectionsDivider': 'divider_d04d18',
+      ),
 
       // Popoout: click on user in chat or member list
       'popout': (
-          'bitesize': (
-            'header': 'header__5be3e',
-            'body': 'body__5be3e',
-            'footer': 'footer__5be3e',
-          ),
-
-          'desaturateUserColors': 'desaturateUserColors__41f68',
+        'bitesize': (
+          'header': 'header__5be3e',
+          'body': 'body__5be3e',
+          'footer': 'footer__5be3e',
         ),
 
-      // Within settings, it's in Profiles. Chances are overlap with popout exist here.
-      'settings': (
-          'badgeList': 'badgeList__1fed1',
-        ),
+        'desaturateUserColors': 'desaturateUserColors__41f68',
+      ),
     ),
 
   'settings': (
@@ -3928,6 +3767,7 @@ $classes: (
       'warning': 'cardWarning__73069',
     ),
 
+    // registerd games, emoji
     'rowCard': 'card_b846e5',
 
     // shared classes. used in multiple places, mainly as a "remove this row" kind of thing
@@ -4343,6 +4183,16 @@ $classes: (
       'removeButton': 'emojiRemove_e7d73e',
     ),
 
+    'stickers': (
+      'grid': 'grid_d87d30',
+      'placeholder': 'placeholderCard_d87d30',
+      'wrapper': 'wrapper__83b1d',
+      'content': 'content__83b1d',
+      'sticker': 'sticker__83b1d',
+      'actions': 'actions__83b1d',
+      'action': 'action__83b1d',
+    ),
+
     'members': (
       'header': 'header_fa2640',
       'bannerContainer': 'bannerContainer__71cd5',
@@ -4358,19 +4208,37 @@ $classes: (
       'circleButton': 'circleButton__5f97b',
       'editButton': 'editButton__5f97b',
       // below "role"s are shown by clicking edit
-      'roleSidebar': 'sidebar_e29cd7',
-      'roleTitleContainer': 'titleContainer_e29cd7',
-      'roleContentContainer': 'contentContainer__91dc3',
-      'roleHeader': 'header_c6bf1b',
-      'roleHeaderStickyElevated': 'stickyHeaderElevated_c6bf1b',
-      'roleHeaderSticky': 'stickyHeader_c6bf1b',
-      'rolePreviewContainer': 'previewContainer__05e8e',
+      'edit': (
+        'sidebar': 'sidebar_e29cd7',
+        'backContainer': 'titleContainer_e29cd7',
+        'contentContainer': 'contentContainer__91dc3',
+        'header': 'header_c6bf1b',
+        'headerStickyElevated': 'stickyHeaderElevated_c6bf1b',
+        'headerSticky': 'stickyHeader_c6bf1b',
+        'iconPreviewContainer': 'previewContainer__05e8e',
+      ),
+      'preview': (
+        // view server as role
+        'notice': 'notice_c9e42f',
+        'button': 'button_c9e42f',
+        'backbutton': 'backButton_c9e42f',
+        'dropdown': 'container__09ccc',  
+      ),
     ),
 
     'access': (
       'joinOptions': 'joinOptions__959cb',
       'joinOptionContent': 'joinOptionContent__959cb',
       'joinOptionActive': 'active__959cb',
+    ),
+
+    'safety': (      
+      'changelog': 'changelog_abe1fa',
+      'checklist': 'safetyChecklist_eae0ef',
+
+      // click on any option
+      'itemWrapper': 'simpleItemWrapper__5dac8',
+      'pill': 'valuePill__5dac8',
     ),
 
     'audit': (
@@ -4386,6 +4254,122 @@ $classes: (
       'bannedUser': 'bannedUser_cdb2b0',
     ),
 
+    'automod': (
+      'badge': 'textBadge__0034b',
+      'editCard': 'editCard_a25a68',
+      'editCardToggled': 'toggled_a25a68',
+      'ruleIconContainer': 'ruleIconContainer_c5e6a1',
+      'ruleIcon': 'ruleIcon_c5e6a1',
+      'pillContainer': 'actionContainer_bc4513',
+      'pillIcon': 'actionIcon_bc4513',
+      'pillText': 'actionTextHeader_bc4513',
+      'stepIcon': 'stepCountIcon_b6c6eb',
+      'stepperContainer': 'stepperContainer_ed9c90',
+      'contentContainer': 'mentionLimitContainer_ed9c90' 'keywordListContainer__09e76' 'actionContainer__6446f',
+      'keywordsTextArea': 'keywordsTextArea__6a631',
+      'regexTextArea': 'textArea_c615b7',
+    ),
+
+    'community': (
+      'enable': (
+        'guildDetails': 'guildDetails_bebc5b',
+        'featureCard': 'featureCard_bebc5b',
+        'featureIcon': 'featureIcon_bebc5b',
+      ),
+      'overview': (
+        'upsellContainer': 'upsellContainer__4cfe2',
+        'upsellFooter': 'upsellFooter__4cfe2',
+      ),
+    ),
+
+    'onboarding': (
+      'testimonialContainer': 'testimonialHeroContainer__3e7e2',
+      'testimonialQuotes': 'quotes__3e7e2',
+      'testimonial': 'testimonial__3e7e2',
+      'upsell': 'upsellPreview_d9161f',      
+      'upsellList': 'previewListItem_d9161f',
+      'upsellListSelected': 'selected_d9161f',
+      'upsellCheckboxCircle': 'checkboxCircle_d9161f',
+      'upsellCheckbox': 'checkbox_d9161f',
+
+      // check it out
+      'setup': (
+        'educationPopout': 'educationUpsell__4a4f2',
+        'educationPopoutArrow': 'educationUpsellArrow__4a4f2',
+        'progressBarContainer': 'progressBarContainer__008b2',
+        'progressBar': 'progressBar__008b2',
+        'progressBarCurrent': 'progressBarCurrent__008b2',
+        'footerContainer': 'container__4a4f2',
+
+        'defaultChannels': (
+          'row': 'channelRow__1ea09',
+          'rowDisabled': 'disabled__1ea09',
+          'rowSeparator': 'separator__1ea09',
+          'listHeader': 'header__75906',
+          'listHeaderContainer': 'container_e9b3cb',
+          'listProgressBar': 'progressBar__58525',
+          'listProgressIcon': 'icon_e9b3cb',
+          'list': 'channelList__75906',
+          'listIndicator': 'chattableIndicator__75906',
+        ),
+
+        'questions': (
+          'addPrompt': 'addPrompt_e34850',
+          'plusIcon': 'plusIcon_e34850',
+          'container': 'container__5d756',
+          'example': 'example__5d756',
+        ),
+
+        'serverGuide': (
+          'actionExample': 'example_d2b0e4',
+          'badExampleIcon': 'badExampleIcon_d2b0e4',
+          'actionItem': 'actionItem_d2b0e4',
+          'actionItemIcon': 'actionItemEmojiWrapper_d2b0e4',
+          'actionAdd': 'addActionItem_d2b0e4',
+        ),
+
+        'review': (
+          'header': 'reviewHeader_a9b452',
+          'stepContainer': 'onboardingStepContainer__28e57',
+          'iconContainer': 'iconContainer__28e57',
+        ),
+      ),
+
+      'onboardingResourceChannel': 'resourceChannel_d2b0e4',
+      
+      'onboardingActionPreviewPill': 'pillContainer__9e06a',
+      'onboardingActionPreviewPillSelected': 'pillItemSelected__9e06a',
+      
+      'onboardingRecommendedDefaultChannels': 'channelRow__514d8',
+      'onboardingChannelPermissionsItems': 'selectableChannelRow_e6fa8e',
+      'onboardingChannelPermissionsMenu': 'deprivateTableBody_e6fa8e',
+      'onboardingRecommendedReadOnly': 'suggestedChannels_d2b0e4',
+      'onboardingPickAnEmoji': 'container_cd2100',
+    ),
+
+    'subs': (
+      'howItWorksContainer': 'howItWorksContainer_dd30dc',
+      'howItWorksCard': 'howItWorksCard_dd30dc',
+      'howItWorksImageContainer': 'howItWorksImageContainer_dd30dc',      
+      'card': 'card_fc2e20',
+      'earningsPreviewContainer': 'earningsPreviewContainer__02e4c',
+      'avatarCard': 'avatarCard__02e4c',
+      'avatarConnector': 'verticalConnector__02e4c' 'horizontalConnector__02e4c',
+      'viewServerButton': 'viewServerButton__2485e',
+    ),
+
+    'boost': (
+      // used in sticker settings too
+      'tierProgressBackground': 'background_c44edb',
+      'tierInProgress': 'tierInProgress_c44edb',
+      'tierCard': 'tier_f15dca',
+      'tierHeader': 'tierHeader_f15dca',
+      'tierHeaderLocked': 'tierHeaderLocked_f15dca',
+      'tierLock': 'tierLock_f15dca',
+      'tierHeaderUnlocked': 'tierHeaderUnlocked_f15dca',
+      'tierBody': 'tierBody_f15dca',
+    ),
+
     'template': (      
       'descriptionBox': 'descriptionBox__981f7',
       'descriptionIcon': 'descriptionIcon__981f7',
@@ -4399,108 +4383,13 @@ $classes: (
       'insightsActions': 'insightsActions_cfaf72',
     ),
 
-    'guildSettingsRoleViewAsDropdown': 'container__09ccc',
-
-    'guildSettingsStickersUploadCard': 'wrapper__83b1d',
-    'guildSettingsStickersTierLock': 'tierLock_f15dca',
-
-    'guildSettingsSafetyChangeLog': 'changelog_abe1fa',
-    'guildSettingsSafetyChecklist': 'safetyChecklist_eae0ef',
-    'guildSettingsSafetyPill': 'valuePill__5dac8',
-    'guildSettingsSafetyItemWrapper': 'simpleItemWrapper__5dac8',
-    'guildSettingsCommunityUpsell': 'upsellContainer__4cfe2',
-    'guildSettingsCommunityUpsellFooter': 'upsellFooter__4cfe2',
-    'guildSettingsDiscoveryChecklist': 'checklist__5afba',
-    'guildSettingsDiscoveryHeader': 'header__812a7',
-    'guildSettingsDiscoverySeparator': 'separator__812a7',
+    
     'guildSettingsWelcomeEnable': 'enableContainer__5ea8c',
     'guildSettingsWelcomePreview': 'previewContainer__5579e',
     'guildSettingsWelcomeEditCircle': 'editCircle__5ea8c',
     'guildSettingsWelcomeChannel': 'welcomeChannel__5579e',
     'guildSettingsWelcomeChannelIcon': 'channelIcon__5579e',
-    'guildSettingsBoostBackground': 'background_c44edb',
-    'guildSettingsBoostTierInProgress': 'tierInProgress_c44edb',
-    'guildSettingsBoostTierLocked': 'tierHeaderLocked_f15dca',
-    'guildSettingsBoostTierUnlocked': 'tierHeaderUnlocked_f15dca',
-    'guildSettingsBoostTierBody': 'tierBody_f15dca',
-    'automodBadge': 'textBadge__0034b',
-    'automodEditCard': 'editCard_a25a68',
-    'automodEditCardToggled': 'toggled_a25a68',
-    'automodRuleIconContainer': 'ruleIconContainer_c5e6a1',
-    'automodRuleIcon': 'ruleIcon_c5e6a1',
-    'automodActionTag': 'actionContainer_bc4513',
-    'automodActionIcon': 'actionIcon_bc4513',
-    'automodActionText': 'actionTextHeader_bc4513',
-    'automodStepIcon': 'stepCountIcon_b6c6eb',
-    'automodStepperCOntainer': 'stepperContainer_ed9c90',
-    'automodContentCard': 'mentionLimitContainer_ed9c90' 'keywordListContainer__09e76' 'actionContainer__6446f',
-    'automodCollapseableHeaderContainer': 'container_e5c5d5',
-    'automodCollapseableHeaderClickable': 'clickableContainer_e5c5d5',
-    'automodCollapsedContainer': 'groupCollapsedContainer_b6a9f9',
-    'automodCollapseablePointer': 'pointer_b6a9f9',
-    'automodCollapseableRadioBackground': 'backgroundModifierContainer_e5c5d5',
-    'automodCollapseableRadioSelected': 'selected_e5c5d5',
-    'automodKeywordsTextArea': 'keywordsTextArea__6a631',
-    'automodRegexTextArea': 'textArea_c615b7',
-    'guildSettingsOnboardingTestimonialContainer': 'testimonialHeroContainer__3e7e2',
-    'guildSettingsOnboardingTestimonialQuotes': 'quotes__3e7e2',
-    'guildSettingsOnboardingTestimonial': 'testimonial__3e7e2',
-    'guildSettingsOnboardingUpsell': 'upsellPreview_d9161f',
-    'guildSettingsOnboardingUpsellList': 'previewListItem_d9161f',
-    'guildSettingsOnboardingUpsellListSelected': 'selected_d9161f',
-    'guildSettingsOnboardingUpsellCheckboxCircle': 'checkboxCircle_d9161f',
-    'guildSettingsOnboardingUpsellCheckbox': 'checkbox_d9161f',
-    'onboardingEduPopout': 'educationUpsell__4a4f2',
-    'onboardingEduPopoutArrow': 'educationUpsellArrow__4a4f2',
-    'onboardingProgressBarContainer': 'progressBarContainer__008b2',
-    'onboardingProgressBar': 'progressBar__008b2',
-    'onboardingProgressBarCurrent': 'progressBarCurrent__008b2',
-    'onboardingFooterContainer': 'container__4a4f2',
-    'onboardingChannelRow': 'channelRow__1ea09',
-    'onboardingChannelRowDisabled': 'disabled__1ea09',
-    'onboardingChannelRowSeparator': 'separator__1ea09',
-    'onboardingChannelListHeader': 'header__75906',
-    'onboardingChannelListHeaderContainer': 'container_e9b3cb',
-    'onboardingChannelListProgressBar': 'progressBar__58525',
-    'onboardingChannelListProgressIcon': 'icon_e9b3cb',
-    'onboardingChannelList': 'channelList__75906',
-    'onboardingChannelChattableIndicator': 'chattableIndicator__75906',
-    'onboardingChannelCoverage': 'channelCoverage_e34850',
-    'onboardingChannelCoverageProgress': 'coverageProgress_e34850',
-    'onboardingChannelCoverageDetails': 'channelCoverageDetails_e34850',
-    'onboardingChannelCoveragePill': 'channelPill_e34850',
-    'onboardingAddQuestion': 'addPrompt_e34850',
-    'onboardingAddQuestionIcon': 'plusIcon_e34850',
-    'onboardingQuestionContainer': 'container__5d756',
-    'onboardingQuestionExample': 'example__5d756',
-    'onboardingActionExampleBadIcon': 'badExampleIcon_d2b0e4',
-    'onboardingActionItem': 'actionItem_d2b0e4',
-    'onboardingResourceChannel': 'resourceChannel_d2b0e4',
-    'onboardingActionItemIcon': 'actionItemEmojiWrapper_d2b0e4',
-    'onboardingActionAdd': 'addActionItem_d2b0e4',
-    'onboardingActionPreviewPill': 'pillContainer__9e06a',
-    'onboardingActionPreviewPillSelected': 'pillItemSelected__9e06a',
-    'onboardingReviewHeader': 'reviewHeader_a9b452',
-    'onboardingReviewStepContainer': 'onboardingStepContainer__28e57',
-    'onboardingReviewIconContainer': 'iconContainer__28e57',
-    'onboardingReviewIcon': 'channelIcon__28e57',
-    'onboardingRecommendedDefaultChannels': 'channelRow__514d8',
-    'onboardingChannelPermissionsItems': 'selectableChannelRow_e6fa8e',
-    'onboardingChannelPermissionsMenu': 'deprivateTableBody_e6fa8e',
-    'onboardingRecommendedReadOnly': 'suggestedChannels_d2b0e4',
-    'onboardingPickAnEmoji': 'container_cd2100',
-    'guildSettingsSubsCard': 'card_ea91d1',
-    'guildSettingsSubsStepsContainer': 'howItWorksContainer_aa72d6',
-    'guildSettingsSubsStepsImageContainer': 'howItWorksImageContainer_aa72d6',
-    'guildSettingsSubsEarningsPreviewContainer': 'earningsPreviewContainer_da92c3',
-    'guildSettingsSubsAvatarCard': 'avatarCard_da92c3',
-    'guildSettingsSubsEmojisContainer': 'emojisContainer_adff39',
-    'guildSettingsSubsViewServerButton': 'viewServerButton_adff39',
 
-
-    'enableCommunityFeatureCard': 'featureCard_bebc5b',
-    'enableCommunityFeatureIcon': 'featureIcon_bebc5b',
-    'enableCommunityGuildDetails': 'guildDetails_bebc5b',
   ),
 
   'popouts': (
@@ -5277,6 +5166,12 @@ $classes: (
       // contains background-image
     ),
 
+    // click on guild tag beside user name
+    'guildTag': (
+      'spinner': 'spinnerContainer__86bf6',
+      'container': 'container__86bf6',
+    ),
+
     'streamPreview': (
       'popout': 'streamPreview__6da2d',
       'previewContainer': 'previewContainer__6da2d',
@@ -5452,13 +5347,18 @@ $classes: (
     ),
 
     // "Time Out" on another user
-    'timeoutDuration': (
+    'timeout': (
       'groupBar': 'group__3d4a0',
       'item': 'item__3d4a0',
 
       // there are many more classes in the group below
       'selectorButton': 'selectorButton__0907c',
       'selectorButtonSelected': 'selectorButtonSelected__0907c',
+    ),
+
+    'ban': (
+      'radioItem': 'radioItemStyles__837b7',
+      'otherReasonClickable': 'banReasonOtherClickable__837b7',
     ),
 
     // Click the x next to a pinned message OR pin a message WITHOUT holding shift
@@ -5716,7 +5616,7 @@ $classes: (
       ),
 
     // In a channel with active threads, hover over it and click "see all". These may apply to the dropdown
-    'openThreadsPopout': (
+    'threads': (
         'modal': 'modal__9a792',
         'browser': 'browser__9a792',
       ),
@@ -6698,7 +6598,6 @@ $classes: (
   // Shit definitely needs sorting.
   'other': (
       'developerPortalCtaWrapper': 'developerPortalCtaWrapper_bf485f',
-      'focusStroke': 'focusStroke_cc5dd2',
       // Random stuff found while attempting to convert ClearVision 6 to this class format. Comments show where the selector is used.
       // This category **WILL** be removed over time and without warning.
       'cv': (
@@ -6746,10 +6645,6 @@ $classes: (
           'membersChannelContainer': 'mainTableContainer_dd2627',
 
           // below: known to not exist elsewhere in this file
-          'spacer': 'spacer__03448',
-          'directionUp': 'directionUp__5fbe9',
-          'directionRight': 'directionRight__5fbe9',
-          'directionLeft': 'directionLeft__5fbe9',
           'gameVerifiedIcon': 'gameVerifiedIcon_cc46f0',
           'nitroTrialBadge': 'premiumTrialAcknowledgedBadge__4c1e4',
           'scrollerWrap': 'wrapper__28a87',
@@ -6760,15 +6655,6 @@ $classes: (
           'newGuildTooltip': 'container_be6a5c',
           'newGuildTooltipPointer': 'tooltipPointer_be6a5c',
           'newGuildTooltipCard': 'container_cfbfb9',
-          'headerBarNicknames': 'nicknames__488b1',
-          'headerBarModalContent': 'content__487be',
-          'chatSearchFocused': 'focused__97492',
-          'headerSearchBar': 'searchBar__3fb48',
-          'headerSearchBackButton': 'backButton_fed6d3',
-          'headerChannelNameOuter': 'outer__4f074',
-          'friendActivity': 'activity__19b6d',
-          'friendsAddFriendInput': 'addFriendInput__72ba7',
-          'friendsAddFriendHint': 'addFriendHint__72ba7',
           'libraryScroller': 'scroller__4a84a',
           'libraryTable': 'table_adb41f',
           'libraryTableHeader': 'header_adb41f',
@@ -6798,33 +6684,6 @@ $classes: (
           'libraryDefaultIndicator': 'defaultIndicator_a6f654',
           'libraryPlayButton': 'playButton__0cb56',
           'libraryPlayButtonContents': 'playButtonContents__0cb56',
-          'addMembersIcon': 'addMembersIcon_d9b498',
-          'activityInviteArtworkNotActionable': 'artworkNotActionable__4d3fa',
-          'activityInviteArtworkSessionEnded': 'artworkSpotifySessionEnded__4d3fa',
-          'activityInviteActionAndParty': 'actionAndParty__4d3fa',
-          'activityInviteActionButton': 'actionButton__4d3fa',
-          'activityInvitePartyMembers': 'partyMembers__4d3fa',
-          'activityInvitePartyMember': 'partyMember__4d3fa',
-          'activityInvitePartyMemberKnown': 'partyMemberKnown__4d3fa',
-          'activityInvitePartyAvatar': 'partyAvatar__4d3fa',
-          'activityInvitePartyMemberEmpty': 'partyMemberEmpty__4d3fa',
-          'activityInviteMoreUsers': 'moreUsers__4d3fa',
-          'activityInviteHelpIcon': 'helpIcon__4d3fa',
-          'activityInviteTextLink': 'textLink__4d3fa',
-          'messageGroupBlockedExpanded': 'expanded__7a70a',
-          'messageTimestampAlt': 'alt_c19a55',
-          'messageInlineMediaEmbed': 'inlineMediaEmbed__623de',
-          'messageSystemIcon': 'icon__235ca',
-          'mention': 'mention',
-          'mentionedInteractive': 'interactive',
-          'mentionIcon': 'icon_b52c3f',
-          'anchorAction': 'actionAnchor__235ca',
-          'messageButtonContainer': 'buttonContainer_c19a55',
-          'reactionAddForceShow': 'forceShowLook_ec6b19',
-          'formFieldWrapper': 'formFieldWrapper_ff716d',
-          'settingsFormFieldWrapper': 'settingsFormFieldWrapper__3ff83',
-          'messageReportOption': 'childButton__3ed08',
-          'reactionModalColorStandard': 'colorStandard_c9946a',
           'botInviteModalContent': 'contentBackground__3d3b0',
           'authModalInApp': 'inApp_c5a065',
           'authModalScopeTimes': 'iconWrapper_cf14a8',
@@ -6833,11 +6692,6 @@ $classes: (
           'connectionDebugTextDetails': 'popoutTextDetails_effb26',
           'connectionDebugBottom': 'popoutBottom_effb26',
           'connectionDebugSecured': 'secured_effb26',
-          'groupInvitePopoutFriendWrapper': 'friendWrapper_bbd192',
-          'groupInvitePopoutFriend': 'friend_bbd192',
-          'groupInvitePopoutFriendSelected': 'friendSelected_bbd192',
-          'groupInvitePopoutNickname': 'nickname_bbd192',
-          'groupInvitePopoutDiscordTag': 'discordTag_bbd192',
           'searchHubHeader': 'searchHeader__83bd4',
           'settingsContentSidebarScrollable': 'sidebarScrollable_ff90b2',
           'settingsToolsContainer': 'toolsContainer__23e6b',
@@ -6846,9 +6700,6 @@ $classes: (
           'settingsImageUploaderIcon': 'imageUploaderIcon_e4d0bf',
           'settingsAttendeeCTA': 'attendeeCTA_ca5ce6',
           'guildFeatureAvailabilityIndicator': 'availabilityIndicator__40463',
-          'loading': 'loading__6ef4d',
-          'replyCloseButton': 'closeButton_e876a8',
-          'replySeperator': 'separator__841c8',
           'screenshareSegmentContainer': 'segmentControl_a2de16',
           'screenshareSegmentControlOption': 'segmentControlOption_a2de16',
           'myScreenControlOptions': 'interactive__2f4f7',
@@ -6949,8 +6800,6 @@ $classes: (
           'webhookFooter': 'footer__51eb2',
           'webhookPopout': 'guildPopout__51eb2',
           'webhookEmojiRow': 'emojiCounter__51eb2',
-          'shopNewPill': 'shyButton_a25714',
-          'pollRadioForeground': 'radioForeground_f4f0eb',
           'clipsShareTo': 'channelRow__1db97',
           'clipsUploadModal': 'sizeClip_aa605f',
           'clipsUploadGame': 'gameIcon_b52e4f',

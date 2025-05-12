@@ -3,10 +3,10 @@
 // TRANSPARENT BG
 #{c(main visualRefresh)} {
   :is(
-		html, // might be needed for injectors
-		body,
-		#{c(main appMount)}
-	) {
+      html, // might be needed for injectors
+      body,
+      #{c(main appMount)}
+    ) {
     background: none;
   }
 }
@@ -26,7 +26,6 @@
     background: var(--noeud-bg-image);
     filter: var(--noeud-bg-shading-percent);
     background-attachment: fixed;
-    margin: -10px;
     z-index: -1;
   }
 }

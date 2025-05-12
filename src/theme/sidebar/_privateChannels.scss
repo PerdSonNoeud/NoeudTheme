@@ -1,0 +1,43 @@
+@use 'backend' as *;
+
+#{c(main visualRefresh)} {
+  #{c(sidebar private channels)} {
+    background: var(--noeud-bg-filter);
+  }
+  #{c(sidebar private scroller)} {
+    background: transparent;
+  }
+
+  // HEADER
+  :is(#{c(sidebar private startActivityIcon)}, 
+      #{c(sidebar private inviteButtonIcon)}) {
+    color: var(--noeud-title-color);
+    &:hover {
+      color: var(--noeud-hover);
+    }
+  }
+}
+
+// LOADING
+#{c(sidebar private loadingEmpty)} {
+  opacity: 0.15;
+}
+
+// CHANNEL CONTENT
+#{c(main visualRefresh)} {
+  #{c(sidebar private interactive)} {
+    border-radius: 4px;
+    // HOVER
+    &:hover {
+      background: var(--noeud-hover);
+    }
+    // SELECTED
+    &#{c(sidebar private selected)} {
+      background-color: var(--noeud-selected);
+      &::before {
+        right: 0;
+        background: var(--noeud-selected);
+      }
+    }
+  }
+}

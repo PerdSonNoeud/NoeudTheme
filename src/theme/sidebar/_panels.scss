@@ -4,6 +4,8 @@
 #{c(main visualRefresh)} {
   #{c(sidebar panel panels)} {
     $guilds_width: 72px;
+    background: var(--noeud-bg-filter);
+    box-shadow: 0px 0px 5px var(--noeud-title-color);
     left: calc(var(--space-xs) + #{$guilds_width});
     width: calc(100% - var(--space-xs) * 2 - #{$guilds_width});
   }

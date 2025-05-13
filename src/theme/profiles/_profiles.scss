@@ -7,6 +7,7 @@
 
 // NO NITRO PROFILE
 #{c(profile userPopout)} {
+  box-shadow: 0px 0px 5px var(--noeud-title-color);
   &:not(#{c(profile customTheme)}) {
     &::before {
       content: "";
@@ -33,7 +34,6 @@
 #{c(profile outer)} {
   &:not(#{c(profile customTheme)}) {
     background: var(--noeud-bg-shading2);
-    box-shadow: 0px 0px 5px var(--noeud-title-color);
     #{c(profile inner)} {
       background: transparent;
     }

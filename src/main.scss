@@ -9,7 +9,7 @@
 
 /* Default Variables */
 :root {
-  --noeud-title-color: rgb(150, 0, 255);
+  --noeud-main-color: rgb(150, 0, 255);
 
   --noeud-color-cat: rgb(210, 0, 255);
   --noeud-closed-cat: rgb(255, 0, 0);
@@ -19,11 +19,11 @@
   --noeud-selected: rgba(210, 0, 255, 0.5);
   --noeud-hover: rgba(210, 0, 255, 0.2);
 
-  --noeud-floating-bg: rgba(110, 0, 155, 0.8);
   --noeud-danger: rgba(255, 0, 0, 0.8);
   --noeud-streaming: rgba(134, 0, 118, 0.8);
-  --noeud-mentioned: rgba(216, 163, 92, 0.2);
+  --noeud-floating-bg: rgba(110, 0, 155, 0.8);
 
+  --noeud-badge-color: rgb(255, 0, 255);
   --noeud-roles-color: rgb(207, 227, 243);
 
   --noeud-bg-url: url(https://raw.githubusercontent.com/PerdSonNoeud/NoeudTheme/refs/heads/main/image/Night_landscape.png);

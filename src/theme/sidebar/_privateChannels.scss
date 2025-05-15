@@ -11,7 +11,7 @@
   // HEADER
   :is(#{c(sidebar private startActivityIcon)}, 
       #{c(sidebar private inviteButtonIcon)}) {
-    color: var(--noeud-title-color);
+    color: var(--noeud-main-color);
     &:hover {
       color: var(--noeud-hover);
     }

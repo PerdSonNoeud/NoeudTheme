@@ -18,7 +18,7 @@ body,
 }
 
 .layers__960e4 {
-  box-shadow: 0px 0px 10px 5px var(--noeud-title-color);
+  box-shadow: 0px 0px 10px 5px var(--noeud-main-color);
   border-radius: 20px;
   margin: 10px;
 }
@@ -32,15 +32,7 @@ body,
 
 .numberBadge__2b1f5,
 .textBadge__2b1f5 {
-  background: var(--noeud-floating-bg) !important;
-}
-
-.mediaBarProgress_b26b79, .mediaBarProgress_b26b79::before, .mediaBarProgress_b26b79::after {
-  background: var(--noeud-floating-bg);
-}
-
-.mediaBarGrabber_b26b79, .mediaBarInteraction_b26b79:hover .mediaBarGrabber_b26b79, .mediaBarInteractionDragging_b26b79 .mediaBarGrabber_b26b79 {
-  background: var(--noeud-floating-bg);
+  background: var(--noeud-badge-color) !important;
 }
 
 .notice__6e2b9 {
@@ -192,7 +184,7 @@ body,
 }
 
 .user-profile-popout {
-  box-shadow: 0px 0px 5px var(--noeud-title-color);
+  box-shadow: 0px 0px 5px var(--noeud-main-color);
 }
 .user-profile-popout:not(.custom-user-profile-theme)::before {
   content: "";
@@ -220,7 +212,7 @@ body,
 }
 .outer_c0bea0:not(.custom-user-profile-theme) .outer_ab8609 {
   background: var(--noeud-bg-shading2);
-  box-shadow: 0px 0px 5px var(--noeud-title-color);
+  box-shadow: 0px 0px 5px var(--noeud-main-color);
 }
 .outer_c0bea0:not(.custom-user-profile-theme) .inner_ab8609 {
   background: var(--noeud-bg-shading2);
@@ -236,7 +228,7 @@ body,
 }
 .note_fcb628 .textarea__9daae:focus {
   background: var(--noeud-bg-shading2);
-  box-shadow: 0px 0px 5px var(--noeud-title-color);
+  box-shadow: 0px 0px 5px var(--noeud-main-color);
 }
 
 .visual-refresh .custom-user-profile-theme .inlineContainer__74017 {
@@ -268,7 +260,7 @@ body,
 /* Side bar */
 .visual-refresh .panels_c48ade {
   background: var(--noeud-bg-filter);
-  box-shadow: 0px 0px 5px var(--noeud-title-color);
+  box-shadow: 0px 0px 5px var(--noeud-main-color);
   left: calc(var(--space-xs) + 72px);
   width: calc(100% - var(--space-xs) * 2 - 72px);
 }
@@ -301,6 +293,11 @@ body,
   background: transparent;
   margin-top: 5px;
   height: 100%;
+}
+
+.wrapper__6e9f8:not(.selected__6e9f8) .icon__6e9f8 {
+  border-radius: 50%;
+  transition: 0.1s;
 }
 
 .visual-refresh .wrapperCommon__29444 .mainContent__29444 .name__29444 {
@@ -340,7 +337,7 @@ body,
 }
 .visual-refresh :is(.plusIcon__675e5,
 .privateChannelRecipientsInviteButtonIcon__99e7c) {
-  color: var(--noeud-title-color);
+  color: var(--noeud-main-color);
 }
 .visual-refresh :is(.plusIcon__675e5,
 .privateChannelRecipientsInviteButtonIcon__99e7c):hover {
@@ -378,17 +375,17 @@ body,
 
 /* Default Variables */
 :root {
-  --noeud-title-color: rgb(150, 0, 255);
+  --noeud-main-color: rgb(150, 0, 255);
   --noeud-color-cat: rgb(210, 0, 255);
   --noeud-closed-cat: rgb(255, 0, 0);
   --noeud-opened-cat: rgb(0, 255, 0);
   --noeud-hover-cat: rgb(255, 100, 210);
   --noeud-selected: rgba(210, 0, 255, 0.5);
   --noeud-hover: rgba(210, 0, 255, 0.2);
-  --noeud-floating-bg: rgba(110, 0, 155, 0.8);
   --noeud-danger: rgba(255, 0, 0, 0.8);
   --noeud-streaming: rgba(134, 0, 118, 0.8);
-  --noeud-mentioned: rgba(216, 163, 92, 0.2);
+  --noeud-floating-bg: rgba(110, 0, 155, 0.8);
+  --noeud-badge-color: rgb(255, 0, 255);
   --noeud-roles-color: rgb(207, 227, 243);
   --noeud-bg-url: url(https://raw.githubusercontent.com/PerdSonNoeud/NoeudTheme/refs/heads/main/image/Night_landscape.png);
   --noeud-bg-image:

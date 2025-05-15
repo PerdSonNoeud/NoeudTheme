@@ -7,3 +7,12 @@
     height: 100%;
   }
 }
+
+#{c(guildList iconWrapper)} {
+  &:not(#{c(guildList selected)}) {
+    #{c(guildList guildIcon)} {
+      border-radius: 50%;
+      transition: 0.1s;
+    }
+  }
+}
